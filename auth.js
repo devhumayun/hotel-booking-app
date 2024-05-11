@@ -1,4 +1,5 @@
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import bcrypt from "bcryptjs";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import FacebookProvider from "next-auth/providers/facebook";
@@ -27,7 +28,10 @@ export const {
           const user = await userModel.findOne({ email: credentials.email });
 
           if (user) {
-            const isMatched = user.email === credentials.email;
+            const isMatched = await bcrypt.compare(
+              credentials.password,
+              user.password
+            );
             if (isMatched) {
               return user;
             } else {

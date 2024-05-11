@@ -10,10 +10,11 @@ const Navbar = async ({ menu_access }) => {
     <nav>
       <Link href="/">
         <Image
-          src="/stayswift.svg"
+          src="/logo (2).png"
           alt="Stay Swift Logo"
-          width={200}
-          height={200} />
+          width={100}
+          height={100}
+        />
       </Link>
       {
         menu_access &&

@@ -12,12 +12,12 @@ const LoginForm = () => {
       const formData = new FormData(e.currentTarget)
       const res = await login(formData)
       if (!!res.error) {
-        setError(res.error.message)
+        setError(res.error)
       } else {
         router.push("/bookings")
       }
-    } catch (error) {
-      setError(error.message)
+    } catch (err) {
+      setError(err.message)
     }
   }
   return (
