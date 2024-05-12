@@ -5,13 +5,17 @@ import HotelCard from "./HotelCard";
 const HotelList = async () => {
   await dbConnect()
   const hotels = await getAllHotels()
-  console.log(hotels);
   return (
     <div className="col-span-9">
       <div className="space-y-4">
-        <HotelCard />
+        {
+          hotels ? (
+            hotels.map((hotel) => (<HotelCard key={hotel.id} hotel={hotel} />))
+          ) : (<p>No hotel available</p>)
+        }
+
       </div>
-    </div>
+    </div >
   );
 };
 

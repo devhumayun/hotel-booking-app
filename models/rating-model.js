@@ -1,8 +1,9 @@
+import { ObjectId } from "mongodb";
 import mongoose, { Schema } from "mongoose";
 
 const ratingSchema = new Schema({
   hotelId: {
-    type: ObjecrId,
+    type: ObjectId,
     requried: true,
   },
   userId: {
