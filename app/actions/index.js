@@ -1,13 +1,9 @@
 "use server";
 
 import { signIn } from "@/auth";
-import { hotelModel } from "@/models/hotels-model";
 import { ratingModel } from "@/models/rating-model";
 import { reviewModel } from "@/models/review-model";
-import {
-  replaceMongoIdInArray,
-  replaceMongoIdInObject,
-} from "@/utils/data-util";
+import { replaceMongoIdInArray } from "@/utils/data-util";
 
 // user login with redeantails
 export const login = async (fromData) => {
@@ -38,18 +34,6 @@ export const getRatingsForAHotel = async (hotelId) => {
   try {
     const ratings = await ratingModel.find({ hotelId: hotelId }).lean();
     return replaceMongoIdInArray(ratings);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-// get hotels by id
-export const getHotelByid = async (id) => {
-  try {
-    const hotelData = await hotelModel.findById(id).lean();
-    console.log(hotelData);
-
-    return replaceMongoIdInObject(hotelData);
   } catch (error) {
     console.error(error);
   }

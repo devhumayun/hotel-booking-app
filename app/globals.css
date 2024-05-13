@@ -70,4 +70,10 @@
   input[type="checkbox"] {
     @apply mx-1;
   }
+  button:disabled {
+    @apply bg-slate-500 cursor-not-allowed;
+  }
+  .btn-disabled {
+    @apply bg-slate-500 cursor-not-allowed px-6 py-2 text-white rounded-md;
+  }
 }

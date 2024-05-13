@@ -20,7 +20,7 @@ const Navbar = async ({ menu_access }) => {
         menu_access &&
         <ul>
           <li>
-            <Link href="#">Recommended Places</Link>
+            <Link href="/hotels">Recommended Places</Link>
           </li>
 
           <li>
