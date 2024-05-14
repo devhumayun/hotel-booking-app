@@ -2,7 +2,17 @@ import HotelList from "@/components/hotel/HotelList";
 import Filter from "@/components/search/Filter";
 import Search from "@/components/search/Search";
 
-const HotelPage = ({ searchParams: { destination, checkin, checkout } }) => {
+const refinedCategory = (category) => {
+  const decodedCat = decodeURI(category);
+  if (decodedCat === "undefined") {
+    return "";
+  }
+  return decodedCat;
+};
+
+const HotelPage = ({
+  searchParams: { destination, checkin, checkout, category },
+}) => {
   return (
     <>
       <section className="bg-[url('/hero-bg.jpg')] bg-cover bg-no-repeat bg-center pt-[100px] pb-[60px]">
@@ -22,6 +32,7 @@ const HotelPage = ({ searchParams: { destination, checkin, checkout } }) => {
             destination={destination}
             checkin={checkin}
             checkout={checkout}
+            category={refinedCategory(category)}
           />
         </div>
       </section>

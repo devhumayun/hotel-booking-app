@@ -6,7 +6,12 @@ import {
   replaceMongoIdInObject,
 } from "@/utils/data-util";
 
-export const getAllHotels = async (destination, checkin, checkout) => {
+export const getAllHotels = async (
+  destination,
+  checkin,
+  checkout,
+  category
+) => {
   const regex = new RegExp(destination, "i");
 
   const hotelsByDestination = await hotelModel
@@ -14,6 +19,13 @@ export const getAllHotels = async (destination, checkin, checkout) => {
     .lean();
 
   let allhotels = hotelsByDestination;
+
+  if (category) {
+    const categoriesArr = category.split("|");
+    allhotels = allhotels.filter((hotel) => {
+      return categoriesArr.includes(hotel.propertyCategory.toString());
+    });
+  }
 
   if (checkin && checkout) {
     allhotels = await Promise.all(

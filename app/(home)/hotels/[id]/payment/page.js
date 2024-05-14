@@ -1,9 +1,14 @@
 import { auth } from "@/auth";
 import PaymentForm from "@/components/payment/PaymentForm";
+import { getUserByEmail } from "@/database/user-quries";
 import { redirect } from "next/navigation";
 
-const PaymentPage = async () => {
+const PaymentPage = async ({
+  params: { id },
+  searchParams: { checkin, checkout },
+}) => {
   const session = await auth();
+  const userData = await getUserByEmail(session?.user?.email);
   if (!session) {
     redirect("/login");
   }
@@ -15,7 +20,11 @@ const PaymentPage = async () => {
           You have picked <b>Effotel By Sayaji Jaipur</b> and base price is{" "}
           <b>$10</b>
         </p>
-        <PaymentForm />
+        <PaymentForm
+          userData={userData}
+          checkin={checkin}
+          checkout={checkout}
+        />
       </div>
     </section>
   );
