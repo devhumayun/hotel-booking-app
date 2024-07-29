@@ -6,9 +6,15 @@ const HotelSummaryInfo = ({ fromListPage, hotel, checkin, checkout }) => {
 
   let params = ""
 
+  console.log("checking", checkin);
+  console.log("checkout", checkout);
+
   if (checkin && checkout) {
     params = `?checkin=${checkin}&checkout=${checkout}`
+    console.log("booking page", params);
   }
+
+
 
   return (
     <>
@@ -28,16 +34,13 @@ const HotelSummaryInfo = ({ fromListPage, hotel, checkin, checkout }) => {
       <div className="flex flex-col gap-2 items-end justify-center">
         <h2 className="text-2xl font-bold text-right">${(hotel?.highRate + hotel?.lowRate) / 2}/night</h2>
         <p className=" text-right">Per Night for 1 Rooms</p>
-        {/* {
-          fromListPage ? (<Link href={`/hotels/${hotel?.id}${params}`} className="btn-primary ">Details</Link>) : (<Link href={hotel?.isBooked ? "#" : `/hotels/${hotel?.id}/payment${params}`} className={hotel?.isBooked ? "btn-disabled" : "btn-primary"}>Book</Link>)
-        } */}
         {
-          fromListPage ? (<Link href={`/hotels/${hotel?.id}${params}`} className="btn-primary ">Details</Link>) : (
-            <Link
-              href={`/hotels/${hotel?.id}/payment${params}`}
-              className={hotel?.isBooked ? "btn-disabled" : "btn-primary"}>Book</Link>)
+          fromListPage ? (<Link href={`/hotels/${hotel?.id}${params}`} className="btn-primary ">Details</Link>) : (<Link href={hotel?.isBooked ? "#" : `/hotels/${hotel?.id}/payment${params}`} className={hotel?.isBooked ? "btn-disabled" : "btn-primary"}>Book</Link>)
         }
-      </div>
+        {/* {{ hotel?.id}/payment${params}`}
+        className={hotel?.isBooked ? "btn-disabled" : "btn-primary"}>Book</Link>)
+        } */}
+      </div >
     </>
   );
 };

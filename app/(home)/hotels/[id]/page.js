@@ -10,7 +10,7 @@ const HotelDetailsPage = async ({
   const hotelInfo = await getHotelById(id, checkin, checkout);
   return (
     <>
-      <Summary hotel={hotelInfo} />
+      <Summary hotel={hotelInfo} checkin={checkin} checkout={checkout} />
       <Gallery gallery={hotelInfo?.gallery} />
       <Overview overview={hotelInfo?.overview} />
     </>
