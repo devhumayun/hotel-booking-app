@@ -1,5 +1,6 @@
 import { bookingModel } from "@/models/booking-model";
 import { hotelModel } from "@/models/hotels-model";
+import { dbConnect } from "@/services/mongo-connection";
 import {
   isTimeInBetween,
   replaceMongoIdInArray,
@@ -12,6 +13,7 @@ export const getAllHotels = async (
   checkout,
   category
 ) => {
+  await dbConnect();
   const regex = new RegExp(destination, "i");
 
   const hotelsByDestination = await hotelModel
@@ -46,6 +48,8 @@ export const getAllHotels = async (
 };
 
 const findBooking = async (hotelId, checkin, checkout) => {
+  await dbConnect();
+
   const matches = await bookingModel
     .find({ hotelId: hotelId.toString() })
     .lean();
@@ -62,6 +66,7 @@ const findBooking = async (hotelId, checkin, checkout) => {
 // get hotels by id
 export const getHotelById = async (hotelId, checkin, checkout) => {
   try {
+    await dbConnect();
     const hotelData = await hotelModel.findById(hotelId).lean();
 
     if (checkin && checkout) {
