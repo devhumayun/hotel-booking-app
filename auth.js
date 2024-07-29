@@ -54,4 +54,6 @@ export const {
       clientSecret: process.env.FACEBOOK_APP_SECRET,
     }),
   ],
+  trustHost: true,
+  trustHostedDomain: true,
 });
