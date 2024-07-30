@@ -10,7 +10,7 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
   const { replace } = useRouter()
   const [allowSearch, setAllowSearch] = useState(true)
   const [searchTerm, setSearchTerm] = useState({
-    destination: "Calvi",
+    destination: destination || "Calvi",
     checkin: checkin,
     checkout: checkout
   })
@@ -52,8 +52,8 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
           <div>
             <span>Destination</span>
             <h4 className="mt-2">
-              <select onChange={handleInputChange} name="destination" id="destination">
-                <option value="Bali">Calvi</option>
+              <select onChange={handleInputChange} defaultValue={searchTerm?.destination} name="destination" id="destination">
+                <option value="Calvi">Calvi</option>
                 <option value="West Midlands">West Midlands</option>
                 <option value="Puglia">Puglia</option>
                 <option value="Greater London">Greater London</option>

@@ -22,3 +22,9 @@ export const isTimeInBetween = (date, from, to) => {
     new Date(date).getTime() <= new Date(to).getTime()
   );
 };
+
+export const dayDifference = (from, to) => {
+  let days = new Date(to).getTime() - new Date(from).getTime();
+  days = days / (24 * 60 * 60 * 1000) + 1;
+  return days;
+};

@@ -5,6 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import mongoClientPromise from "./database/mongoClientPromise";
 import { userModel } from "./models/user-model";
+import { dbConnect } from "./services/mongo-connection";
 export const {
   auth,
   signOut,
@@ -24,6 +25,7 @@ export const {
       async authorize(credentials) {
         if (credentials === null) return null;
         try {
+          await dbConnect();
           const user = await userModel.findOne({ email: credentials.email });
 
           if (user) {

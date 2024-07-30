@@ -6,9 +6,6 @@ const HotelSummaryInfo = ({ fromListPage, hotel, checkin, checkout }) => {
 
   let params = ""
 
-  console.log("checking", checkin);
-  console.log("checkout", checkout);
-
   if (checkin && checkout) {
     params = `?checkin=${checkin}&checkout=${checkout}`
     console.log("booking page", params);
