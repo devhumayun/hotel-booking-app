@@ -82,3 +82,14 @@ export const getHotelById = async (hotelId, checkin, checkout) => {
     console.error(error);
   }
 };
+
+// get hotel by user id
+export const getHotelByUserId = async (userId) => {
+  try {
+    const bookings = await bookingModel.find({ userId: userId }).lean();
+
+    return replaceMongoIdInArray(bookings);
+  } catch (error) {
+    throw new Error(error);
+  }
+};

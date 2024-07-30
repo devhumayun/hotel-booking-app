@@ -34,6 +34,7 @@ const PaymentForm = ({ userData, checkin, checkout, hotelData, totalCost }) => {
       })
 
       res.status === 201 && router.push("/bookings")
+      router.refresh()
 
     } catch (error) {
       setError(error?.message)
