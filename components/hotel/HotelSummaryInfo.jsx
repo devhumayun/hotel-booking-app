@@ -23,7 +23,7 @@ const HotelSummaryInfo = ({ fromListPage, hotel, checkin, checkout }) => {
           <HotelReviews id={hotel?.id} />
           {hotel?.isBooked && <span className="font-bold">Sold out</span>}
         </div>
-        <span className="text-[#FF6A28] bg-slate-300 p-1 rounded-md">{hotel?.
+        <span className="text-[#000] bg-[#003912] bg-opacity-50 p-[6px] rounded-md">{hotel?.
           propertyCategory
         } star hotel</span>
       </div>

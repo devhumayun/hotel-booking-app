@@ -15,7 +15,7 @@
   }
 
   nav ul .login {
-    @apply bg-primary px-6 py-3 text-white font-bold rounded-md;
+    @apply bg-[#003912] px-6 py-3 text-white font-bold rounded-md;
   }
 
   .container {
@@ -32,11 +32,11 @@
   }
 
   .search-btn {
-    @apply bg-primary px-8 py-3 rounded-md block mx-auto text-white font-bold -translate-y-1/2 shadow-lg hover:shadow-primary/50 active:scale-95 transition-all;
+    @apply bg-[#003912] px-8 py-3 rounded-md block mx-auto text-white font-bold -translate-y-1/2 shadow-lg hover:shadow-md hover:bg-[#003912]/95 active:scale-95 transition-all;
   }
 
   .btn-primary {
-    @apply bg-primary px-8 py-2 rounded-md block text-white font-bold shadow-lg hover:shadow-primary/50 active:scale-95 transition-all;
+    @apply bg-[#003912] px-8 py-2 rounded-md block text-white font-bold shadow-lg hover:shadow-md hover:bg-[#003912]/95 active:scale-95 transition-all;
   }
 
   #searchParams {

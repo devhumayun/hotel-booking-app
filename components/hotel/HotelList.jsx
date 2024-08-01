@@ -11,7 +11,7 @@ const HotelList = async ({ destination, checkin, checkout, category }) => {
         {
           hotels.length > 0 ? (
             hotels.map((hotel) => (<HotelCard key={hotel.id} hotel={hotel} checkin={checkin} checkout={checkout} />))
-          ) : (<div className="bg-slate-200 p-4 border-[#FF6A28] border-2 rounded-md ">
+          ) : (<div className="bg-slate-200 p-4 border-[#003912] border-2 rounded-md ">
             <h2 className="text-lg mb-1">No hotels found this search result 😐</h2>
             <p>Try to change your search query!</p>
           </div>)
